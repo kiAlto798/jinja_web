@@ -1,0 +1,29 @@
+<head>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+</script>
+</head>
+
+<body>
+<h3> test page</h3>
+<textarea id="jinja" cols="100" rows="10"></textarea>
+<button onclick="get_jinja()">test</button>
+<p>结果：</p>
+<p id="result">
+</p>
+</body>
+
+<script>
+        function get_jinja() {
+            var url = '/API/jinja/';
+            var text = $("#jinja").val();
+            console.log(text);
+            $.post(
+                url,
+                text,
+                function (res) {
+                    console.log(res);
+                    $("#result").html(res);
+                }
+            )
+        }
+</script>
